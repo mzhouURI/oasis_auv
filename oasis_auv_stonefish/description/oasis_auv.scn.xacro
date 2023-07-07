@@ -16,64 +16,53 @@
 
            
             <base_link name="Vehicle" type="compound" physics="submerged">
-                <external_part name="Hull" type="model" physics="submerged" buoyant="false">
+                <external_part name="Hull" type="model" physics="submerged" buoyant="true">
                     <physical>
-                        <mesh filename="hull_phy_reduced.obj" scale="1.0"/>
-                        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                        <mesh filename="body.obj" scale="1.0"/>
+                        <origin rpy="0.0 -1.571 1.571" xyz="0.0 0.0 0.0"/>
                     </physical>
                     <visual>
-                        <mesh filename="hull.obj" scale="1.0"/>
-                        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-                    </visual>
-                    <material name="Vehicle"/>
-                    <look name="yellow"/>
-                    <mass value="39.0"/>
-                    <inertia xyz="1.0 10.0 10.0"/>
-                    <compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-                    <cg xyz="-0.65 0.0 0.1" rpy="0.0 0.0 0.0"/>
-                </external_part>
-
-                <internal_part name="Foam" type="cylinder" physics="surface" buoyant="true">
-                    <dimensions radius="0.12" height="0.9"/>
-                    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-                    <material name="Foam"/>
-                    <mass value="1.5"/>
-                    <look name="grey"/>
-                    <compound_transform rpy="0.0 1.571 0.0" xyz="-0.65 0.0 -0.1"/>
-                </internal_part>
-
-                <external_part name="Mast" type="model" physics="submerged">
-                    <physical>
-                        <mesh filename="mast.obj" scale="0.001"/>
-                        <origin rpy="-1.571 0.0 1.571"  xyz="-1.0 0.0 0.0"/>
-                    </physical>
-                    <visual>
-                        <mesh filename="mast.obj" scale="0.001"/>
-                        <origin rpy="-1.571 0.0 1.571" xyz="-1.0 0.0 0.0"/>
-                    </visual>
-                    <material name="Resin"/>
-                    <look name="white"/>
-                    <compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-                </external_part>
-
-                <external_part name="ThrusterDuctSurge" type="model" physics="submerged" buoyant="false">
-                    <physical>
-                        <mesh filename="duct.obj" scale="0.0015"/>
-                        <origin rpy="0.0 1.571 0.0" xyz="-1.325 0.0 0.0"/>
-                    </physical>
-                    <visual>
-                        <mesh filename="duct.obj" scale="0.0015"/>
-                        <origin rpy="0.0 1.571 0.0" xyz="-1.325 0.0 0.0"/>
+                        <mesh filename="body.obj" scale="1.0"/>
+                        <origin rpy="0.0 -1.571 1.571" xyz="0.0 0.0 0.0"/>
                     </visual>
                     <material name="Neutral"/>
+                    <look name="yellow"/>
+                    <mass value="30"/>
+                    <!-- <inertia xyz="1.0 10.0 10.0"/> -->
+                    <compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                    <!-- balanced -->
+                    <cg xyz="0.565 0.0 0.00" rpy="0.0 0.0 0.0"/> 
+                </external_part>
+
+                <internal_part name="Foam" type="box" physics="surface" buoyant="true">
+                    <dimensions xyz="0.23 0.058 0.042"/>
+                    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                    <material name="Stainless_steel"/>
+                    <mass value="4.0"/>
+                    <look name="grey"/>
+                    <!-- <compound_transform rpy= "0.0 0.0 0.0" xyz="0.9 0 0.057"/> -->
+                    <!-- <compound_transform rpy= "0.0 0.0 0.0" xyz="0.847 0 0.057"/> -->
+                    <compound_transform rpy= "0.0 0.0 0.0" xyz="0.347 0 0.057"/>
+                </internal_part>
+
+                <external_part name="ThrusterDuctSurge" type="model" physics="surface" buoyant="true">
+                    <physical>
+                        <mesh filename="T500_duct.obj" scale="1.0"/>
+                        <origin rpy="1.571 3.1415 0.0" xyz="-0.18 0.0 0.0"/>
+                    </physical>
+                    <visual>
+                        <mesh filename="T500_duct.obj" scale="1.0"/>
+                        <origin rpy="1.571 3.1415 0.0" xyz="-0.18 0.0 0.0"/>
+                    </visual>
+                    <material name="Delrin"/>
                     <look name="black"/>
                     <compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
                 </external_part>
             </base_link>
 
             <!-- the actual base frame  -->
-            <link name="Base" type="box" physics="submerged">
-                <dimensions xyz="0.01 0.02 0.01"/>
+            <link name="Base" type="box" physics="submerged"  buoyant="false">
+                <dimensions xyz="0.0001 0.0002 0.00001"/>
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <material name="Neutral"/>
                 <look name="Green"/>
@@ -85,39 +74,27 @@
                 <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
                 <axis xyz="1.0 0.0 0.0"/>
             </joint>
-            <!--  -->
 
-            <actuator name="ThrusterSwayBow" type="thruster">
+
+            <actuator name="ThrusterSway" type="thruster">
                 <link name="Base"/>
-                <origin rpy="0.0 0.0 1.5707963" xyz="-0.18 0.0 0.0"/>
+                <origin rpy="0.0 0.0 1.5707963" xyz="0.07 0.0 0.038"/>
                 <specs thrust_coeff="0.4315" thrust_coeff_backward="0.3404" torque_coeff="0.01" max_rpm="3000.0"/>
                 <propeller diameter="0.08" right="true">
                     <mesh filename="prop.obj" scale="1.0"/>
-                    <material name="Neutral"/>
+                    <material name="Delrin"/>
                     <look name="white"/>
                 </propeller>
-                <ros_subscriber topic="/${robot_name}/control/thruster/sway_bow"/>
-            </actuator>
-
-            <actuator name="ThrusterHeaveStern" type="thruster">
-                <link name="Base"/>
-                <origin rpy="0.0 -1.571 0.0" xyz="-1.0956 0.0 0.0"/>
-                <specs thrust_coeff="0.4315" thrust_coeff_backward="0.3404" torque_coeff="0.01" max_rpm="3000.0"/>
-                <propeller diameter="0.08" right="true">
-                    <mesh filename="prop.obj" scale="1.0"/>
-                    <material name="Neutral"/>
-                    <look name="white"/>
-                </propeller>
-                <ros_subscriber topic="/${robot_name}/control/thruster/heave_stern"/>
+                <ros_subscriber topic="/${robot_name}/control/thruster/sway"/>
             </actuator>
 
             <actuator name="ThrusterHeaveBow" type="thruster">
                 <link name="Base"/>
-                <origin rpy="0.0 -1.571 0.0" xyz="-0.2857 0.0 0.0"/>
+                <origin rpy="0.0 -1.571 0.0" xyz="1.0674 0.0 0.03"/>
                 <specs thrust_coeff="0.4315" thrust_coeff_backward="0.3404" torque_coeff="0.01" max_rpm="3000.0"/>
                 <propeller diameter="0.08" right="true">
                     <mesh filename="prop.obj" scale="1.0"/>
-                    <material name="Neutral"/>
+                    <material name="Delrin"/>
                     <look name="white"/>
                 </propeller>
                 <ros_subscriber topic="/${robot_name}/control/thruster/heave_bow"/>
@@ -125,27 +102,29 @@
 
             <actuator name="ThrusterSurge" type="thruster">
                 <link name="Base"/>
-                <origin rpy="0.0 0.0 0.0" xyz="-1.325 0.0 0.0"/>
+                <origin rpy="0.0 0.0 0.0" xyz="-0.2 0.0 0.0"/>
                 <specs thrust_coeff="1.7568" thrust_coeff_backward="1.0882" torque_coeff="0.01" max_rpm="3000.0"/>
                 <propeller diameter="0.08" right="true">
                     <origin rpy="1.571 0.0 0.0" xyz="0.0 0.0 0.0"/>
                     <mesh filename="prop.obj" scale="1.5"/>
-                    <material name="Neutral"/>
+                    <material name="Delrin"/>
                     <look name="white"/>
                 </propeller>
                 <ros_subscriber topic="/${robot_name}/control/thruster/surge"/>
             </actuator>
 
+
+            
             <sensor name="pressure" type="pressure" rate="5.0">
                 <link name="Base"/>
-                <origin rpy="0.0 0.0 0.0" xyz="-1.20 0.0 0.0"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.1 0.0 0.0"/>
                 <noise pressure="2.0"/>
                 <ros_publisher topic="/${robot_name}/pressure"/>
             </sensor>
 
             <sensor name="dvl_sf" type="dvl" rate="5.0">
                 <link name="Base"/>
-                <origin rpy="3.1415926 0.0 0.0" xyz="-0.65 0.0 0.1"/>
+                <origin rpy="3.1415926 0.0 0.0" xyz="0.65 0.0 0.092"/>
                 <specs beam_angle="30.0"/>
                 <range velocity="9.0 9.0 9.0" altitude_min="0.2" altitude_max="200.0"/>
                 <noise velocity="0.015" altitude="0.001"/>
@@ -154,17 +133,26 @@
 
             <sensor name="imu_sf" type="imu" rate="20.0">
                 <link name="Base"/>
-                <origin rpy="3.1415926 0.0 0.0" xyz="-0.65 0.0 -0.05"/>
+                <origin rpy="3.1415926 0.0 0.0" xyz="0.65 0.0 0.092"/>
                 <noise angle="0.01 0.01 0.05" angular_velocity="0.05" yaw_drift="0.001" linear_acceleration="0.1"/>
                 <ros_publisher topic="/${robot_name}/imu/stonefish/data"/>
             </sensor>
 
-            <sensor name="gps" type="gps" rate="1.0">
+            <!-- <sensor name="gps" type="gps" rate="1.0">
                 <link name="Base"/>
                 <origin rpy="0.0 0.0 0.0" xyz="-0.7 0.0 -0.3"/>
                 <noise ned_position="0.1"/>
                 <ros_publisher topic="/${robot_name}/gps/fix"/>
+            </sensor> -->
+            <sensor name="Cam" rate="5.0" type="camera">
+                <link name="Base"/>
+                <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0"/>
+                <origin xyz="1.25 0.0 0.05" rpy="0.0 1.571 0.0"/>
+                <ros_publisher topic="/${robot_name}/camera/data"/>
+                
             </sensor>
+
+
 
             <world_transform rpy="${rpy}" xyz="${xyz}"/>
 

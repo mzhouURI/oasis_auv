@@ -36,7 +36,7 @@
         output="screen">
         <param
             name="scenario_description"
-            command="$(find xacro)/xacro robot_name:=$(arg robot_name) '$(find alpha_std_stonefish)/scenarios/$(arg scenario).scn.xacro'"/>
+            command="$(find xacro)/xacro robot_name:=$(arg robot_name) '$(find oasis_auv_stonefish)/scenarios/$(arg scenario).scn.xacro'"/>
 
     </node>
 

@@ -1,0 +1,9 @@
+##
+# Behavior: Timer
+# States:
+#   - test
+##
+
+# unit: second
+duration: 60
+transition_to: start

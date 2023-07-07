@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot name="oasis_auv" xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 -0.63 -0.57" rpy="0.0 0.0 1.5707963"/>
+            <geometry>
+                <mesh filename="package://oasis_auv_description/mesh/oasis_auv.obj" scale="1 1 1"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="cg_link"/>
+    <joint name="cg_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="cg_link"/>
+    </joint>
+
+    <link name="imu"/>
+    <joint name="imu_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu"/>
+    </joint>
+
+    <link name="imu_sf"/>
+    <joint name="imu__sf_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="imu_sf"/>
+    </joint>
+
+    <link name="dvl"/>
+    <joint name="dvl_joint" type="fixed">
+        <origin xyz="-0.22 0.0 -0.08" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl"/>
+    </joint>
+
+     <link name="dvl_sf"/>
+    <joint name="dvl_sf_joint" type="fixed">
+        <origin xyz="-0.22 0.0 -0.08" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="dvl_sf"/>
+    </joint>
+
+    <link name="gps"/>
+    <joint name="gps_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.28" rpy="3.1415926 0.0 -1.5707963"/>
+        <parent link="base_link"/>
+        <child link="gps"/>
+    </joint>
+
+    <link name="pressure"/>
+    <joint name="pressure_joint" type="fixed">
+        <origin xyz="-0.25 0.0 0.05" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="pressure"/>
+    </joint>
+
+    <!-- thrusters -->
+    <link name="surge_thruster_link"/>
+    <joint name="surge_thruster_joint" type="fixed">
+        <origin xyz="-0.68 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="surge_thruster_link"/>
+    </joint>
+
+    <link name="heave_bow_thruster_link"/>
+    <joint name="heave_bow_thruster_joint" type="fixed">
+        <origin xyz="0.38 0.0 0.0" rpy="0.0 1.57079632679 0.0"/>
+        <parent link="base_link"/>
+        <child link="heave_bow_thruster_link"/>
+    </joint>
+
+
+    <link name="sway_thruster_link"/>
+    <joint name="sway_thruster_joint" type="fixed">
+        <origin xyz="0.48 0.0 0.0" rpy="0.0 0.0 -1.57079632679"/>
+        <parent link="base_link"/>
+        <child link="sway_thruster_link"/>
+    </joint>
+    
+    <!-- perception sensors -->
+    <!-- <link name="mss"/>
+    <joint name="mss_joint" type="fixed">
+        <origin xyz="0.65 0.0 0.0" rpy="3.1415926 1.5707963 0.0"/>
+        <parent link="base_link"/>
+        <child link="mss"/>
+    </joint> -->
+
+
+   
+</robot>

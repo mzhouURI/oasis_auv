@@ -1,0 +1,25 @@
+frequency: 10
+
+delay: 1.0
+# magnetic_declination_radians: -0.2408554
+
+yaw_offset: 0.0
+
+publish_filtered_gps: true
+
+# broadcast_cartesian_transform: true
+
+use_odometry_yaw: true
+
+# use_local_cartesian: true
+
+# zero_altitude: true
+
+
+## If you want to set a datum uncomment the following
+wait_for_datum: true
+datum: [41.0, -71.0000, 0.0, odom, base_link]
+
+# broadcast_cartesian_transform_as_parent_frame: false
+
+# transform_timeout: 0.0

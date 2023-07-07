@@ -1,0 +1,60 @@
+# This file defines states and attache behaviors and priorities for helm
+
+
+helm_configuration:
+  frequency: 10.0
+
+finite_state_machine:
+  - name: start
+    mode: idle
+    initial: true
+    transitions:
+      - floating
+      - survey_global
+      - kill
+
+  - name: floating
+    mode: hold_depth
+    transitions:
+      - start
+      - kill
+
+  - name: survey_global
+    mode: flight
+    transitions:
+      - start
+      - kill
+
+  - name: kill
+    mode: idle
+    transition:
+      - start
+
+
+behaviors:
+    - name: direct_control
+    plugin: helm::DirectControl
+    states:
+      - { name: floating, priority: 1 }
+
+  - name: path_global
+    plugin: helm::PathFollowingI
+    states:
+      - { name: survey_global, priority: 1 }
+
+  - name: depth_tracking
+    plugin: helm::DepthTracking
+    states:
+      - { name: survey_local, priority: 1 }
+      - { name: survey_global, priority: 1 }
+
+  - name: periodic_surfacing
+    plugin: helm::PeriodicSurface
+    states:
+      - {name: survey_local, priority: 2}
+      - {name: survey_global, priority: 2}
+
+  - name: gps_wpt
+    plugin: helm::GpsWaypoint
+    states:
+      - {name: survey_global, priority: 1}
