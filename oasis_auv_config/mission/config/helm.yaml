@@ -9,20 +9,22 @@ finite_state_machine:
     mode: idle
     initial: true
     transitions:
-      - floating
+      - float
       - survey_global
       - kill
 
-  - name: floating
+  - name: float
     mode: hold_depth
     transitions:
       - start
+      - drift
       - kill
 
-  - name: survey_global
-    mode: flight
+  - name: drift
+    mode: move
     transitions:
       - start
+      - float
       - kill
 
   - name: kill
@@ -32,15 +34,15 @@ finite_state_machine:
 
 
 behaviors:
-    - name: direct_control
+  - name: floating
     plugin: helm::DirectControl
     states:
-      - { name: floating, priority: 1 }
+      - { name: float, priority: 1 }
 
-  - name: path_global
-    plugin: helm::PathFollowingI
+  - name: drifting
+    plugin: helm::DirectControl
     states:
-      - { name: survey_global, priority: 1 }
+      - { name: drift, priority: 1 }
 
   - name: depth_tracking
     plugin: helm::DepthTracking

@@ -5,10 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /RobotModel1
+        - /TF1
         - /TF1/Frames1
-        - /Marker1
-        - /Marker2
-        - /Odometry1
         - /Odometry1/Covariance1
       Splitter Ratio: 0.5089927911758423
     Tree Height: 826
@@ -108,10 +107,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        heave_stern_thruster_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         imu:
           Alpha: 1
           Show Axes: false
@@ -128,50 +123,50 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        sway_bow_thruster_link:
+        sway_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
       Name: RobotModel
-      Robot Description: alpha_std/robot_description
-      TF Prefix: alpha_std
+      Robot Description: oasis_auv/robot_description
+      TF Prefix: oasis_auv
       Update Interval: 0
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        alpha_std/base_link:
+        oasis_auv/base_link:
           Value: true
-        alpha_std/cg_link:
+        oasis_auv/cg_link:
+          Value: false
+        oasis_auv/dvl:
+          Value: false
+        oasis_auv/dvl_sf:
+          Value: false
+        oasis_auv/gps:
+          Value: false
+        oasis_auv/heave_bow_thruster_link:
           Value: true
-        alpha_std/dvl:
+        oasis_auv/imu:
+          Value: false
+        oasis_auv/imu_sf:
+          Value: false
+        oasis_auv/odom:
+          Value: false
+        oasis_auv/pressure:
+          Value: false
+        oasis_auv/surge_thruster_link:
           Value: true
-        alpha_std/dvl_sf:
+        oasis_auv/sway_thruster_link:
           Value: true
-        alpha_std/gps:
-          Value: true
-        alpha_std/heave_bow_thruster_link:
-          Value: true
-        alpha_std/heave_stern_thruster_link:
-          Value: true
-        alpha_std/imu:
-          Value: true
-        alpha_std/imu_sf:
-          Value: true
-        alpha_std/odom:
-          Value: true
-        alpha_std/pressure:
-          Value: true
-        alpha_std/surge_thruster_link:
-          Value: true
-        alpha_std/sway_bow_thruster_link:
-          Value: true
-        alpha_std/world:
-          Value: true
-        alpha_std/world_ned:
+        oasis_auv/world:
+          Value: false
+        oasis_auv/world_ned:
           Value: true
       Marker Alpha: 1
       Marker Scale: 0.5
@@ -180,49 +175,47 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        alpha_std/odom:
-          alpha_std/base_link:
-            alpha_std/cg_link:
+        oasis_auv/odom:
+          oasis_auv/base_link:
+            oasis_auv/cg_link:
               {}
-            alpha_std/dvl:
+            oasis_auv/dvl:
               {}
-            alpha_std/dvl_sf:
+            oasis_auv/dvl_sf:
               {}
-            alpha_std/gps:
+            oasis_auv/gps:
               {}
-            alpha_std/heave_bow_thruster_link:
+            oasis_auv/heave_bow_thruster_link:
               {}
-            alpha_std/heave_stern_thruster_link:
+            oasis_auv/imu:
               {}
-            alpha_std/imu:
+            oasis_auv/imu_sf:
               {}
-            alpha_std/imu_sf:
+            oasis_auv/pressure:
               {}
-            alpha_std/pressure:
+            oasis_auv/surge_thruster_link:
               {}
-            alpha_std/surge_thruster_link:
+            oasis_auv/sway_thruster_link:
               {}
-            alpha_std/sway_bow_thruster_link:
-              {}
-          alpha_std/world:
-            alpha_std/world_ned:
+          oasis_auv/world:
+            oasis_auv/world_ned:
               {}
       Update Interval: 0
       Value: true
     - Class: rviz/Marker
       Enabled: true
-      Marker Topic: /alpha_std/helm/path_global/path
+      Marker Topic: /oasis_auv/helm/path_global/path
       Name: Marker
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
       Enabled: true
-      Marker Topic: /alpha_std/helm/path_global/segment
+      Marker Topic: /oasis_auv/helm/path_global/segment
       Name: Marker
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
       Value: true
     - Angle Tolerance: 0.10000000149011612
@@ -242,7 +235,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: false
-      Enabled: true
+      Enabled: false
       Keep: 100
       Name: Odometry
       Position Tolerance: 0.10000000149011612
@@ -257,14 +250,14 @@ Visualization Manager:
         Shaft Length: 1
         Shaft Radius: 0.05000000074505806
         Value: Arrow
-      Topic: /alpha_std/odometry/filtered/local
+      Topic: /oasis_auv/odometry/filtered/local
       Unreliable: false
-      Value: true
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 238; 238; 236
     Default Light: true
-    Fixed Frame: alpha_std/odom
+    Fixed Frame: oasis_auv/odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -288,7 +281,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 19.06247329711914
+      Distance: 3.8887827396392822
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -296,17 +289,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 6.3114728927612305
-        Y: 3.9016098976135254
-        Z: 0.7729726433753967
+        X: 0.1418643444776535
+        Y: -0.5113480091094971
+        Z: -1.3878840208053589
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.49539804458618164
+      Pitch: 1.399796485900879
       Target Frame: alpha/base_link
-      Yaw: 4.965404987335205
+      Yaw: 5.360405921936035
     Saved: ~
 Window Geometry:
   Displays:

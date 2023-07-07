@@ -4,7 +4,7 @@
 
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 -0.63 -0.57" rpy="0.0 0.0 1.5707963"/>
+            <origin xyz="-0.5 0.0 0.184" rpy="3.1415926 0.0 3.1415926"/>
             <geometry>
                 <mesh filename="package://oasis_auv_description/mesh/oasis_auv.obj" scale="1 1 1"/>
             </geometry>
@@ -20,28 +20,28 @@
 
     <link name="imu"/>
     <joint name="imu_joint" type="fixed">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu"/>
     </joint>
 
     <link name="imu_sf"/>
     <joint name="imu__sf_joint" type="fixed">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu_sf"/>
     </joint>
 
     <link name="dvl"/>
     <joint name="dvl_joint" type="fixed">
-        <origin xyz="-0.22 0.0 -0.08" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl"/>
     </joint>
 
      <link name="dvl_sf"/>
     <joint name="dvl_sf_joint" type="fixed">
-        <origin xyz="-0.22 0.0 -0.08" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl_sf"/>
     </joint>
@@ -55,7 +55,7 @@
 
     <link name="pressure"/>
     <joint name="pressure_joint" type="fixed">
-        <origin xyz="-0.25 0.0 0.05" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.2 0.0 0.091" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="pressure"/>
     </joint>
@@ -63,14 +63,14 @@
     <!-- thrusters -->
     <link name="surge_thruster_link"/>
     <joint name="surge_thruster_joint" type="fixed">
-        <origin xyz="-0.68 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.5 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="surge_thruster_link"/>
     </joint>
 
     <link name="heave_bow_thruster_link"/>
     <joint name="heave_bow_thruster_joint" type="fixed">
-        <origin xyz="0.38 0.0 0.0" rpy="0.0 1.57079632679 0.0"/>
+        <origin xyz="0.7674 0.0 0.03" rpy="0.0 1.57079632679 0.0"/>
         <parent link="base_link"/>
         <child link="heave_bow_thruster_link"/>
     </joint>
@@ -78,7 +78,7 @@
 
     <link name="sway_thruster_link"/>
     <joint name="sway_thruster_joint" type="fixed">
-        <origin xyz="0.48 0.0 0.0" rpy="0.0 0.0 -1.57079632679"/>
+        <origin xyz="-0.27 0.0 -0.038" rpy="0.0 0.0 -1.57079632679"/>
         <parent link="base_link"/>
         <child link="sway_thruster_link"/>
     </joint>

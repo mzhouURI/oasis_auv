@@ -113,28 +113,26 @@
                 <ros_subscriber topic="/${robot_name}/control/thruster/surge"/>
             </actuator>
 
-
-            
             <sensor name="pressure" type="pressure" rate="5.0">
                 <link name="Base"/>
-                <origin rpy="0.0 0.0 0.0" xyz="0.1 0.0 0.0"/>
-                <noise pressure="2.0"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.1 0.0 -0.091"/>
+                <noise pressure="0.0"/>
                 <ros_publisher topic="/${robot_name}/pressure"/>
             </sensor>
 
             <sensor name="dvl_sf" type="dvl" rate="5.0">
                 <link name="Base"/>
-                <origin rpy="3.1415926 0.0 0.0" xyz="0.65 0.0 0.092"/>
+                <origin rpy="0.0 0.0 0.0" xyz="0.1 0.0 -0.092"/>
                 <specs beam_angle="30.0"/>
                 <range velocity="9.0 9.0 9.0" altitude_min="0.2" altitude_max="200.0"/>
-                <noise velocity="0.015" altitude="0.001"/>
+                <noise velocity="0.0" altitude="0.00"/>
                 <ros_publisher topic="/${robot_name}/dvl/twist" altitude_topic="/${robot_name}/dvl/altitude"/>
             </sensor>
 
             <sensor name="imu_sf" type="imu" rate="20.0">
                 <link name="Base"/>
-                <origin rpy="3.1415926 0.0 0.0" xyz="0.65 0.0 0.092"/>
-                <noise angle="0.01 0.01 0.05" angular_velocity="0.05" yaw_drift="0.001" linear_acceleration="0.1"/>
+                <origin rpy="3.1415926 0.0 0.0" xyz="0.1 0.0 -0.092"/>
+                <noise angle="0.00 0.00 0.00" angular_velocity="0.00" yaw_drift="0.000" linear_acceleration="0.0"/>
                 <ros_publisher topic="/${robot_name}/imu/stonefish/data"/>
             </sensor>
 

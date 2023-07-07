@@ -6,7 +6,7 @@
 ##
 
 max_pitch: 0.4 # radians ->23 degrees
-desired_depth: 5.0 # meters
+desired_depth: 10.0 # meters
 forward_distance: 3.0
 use_heave_velocity: false
 pitch_enabled: false      #if pitch will be controlled during depth tracking
