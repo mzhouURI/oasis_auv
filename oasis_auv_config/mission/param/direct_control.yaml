@@ -41,7 +41,7 @@ desired_z: 7.0
 desired_roll: 0.0 
 # desired_pitch: 1.55
 desired_pitch: 0.0
-desired_yaw: 1.571
+desired_yaw: 3.14
 
 # velocity
 desired_surge: 0.0

@@ -36,7 +36,7 @@
         </atmosphere>
     </environment>
 
-    <static name="Ice" type="model">
+    <!-- <static name="Ice" type="model">
         <physical>
             <mesh filename="ice_cover.obj" scale="1.0" convex="false"/>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -48,7 +48,7 @@
         <material name="Ice"/>
         <look name="ice"/>
         <world_transform xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-    </static>
+    </static> -->
 
 
 </scenario>
