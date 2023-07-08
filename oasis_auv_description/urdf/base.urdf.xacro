@@ -27,7 +27,7 @@
 
     <link name="imu_sf"/>
     <joint name="imu__sf_joint" type="fixed">
-        <origin xyz="-0.3 0.0 0.092" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="imu_sf"/>
     </joint>
@@ -78,7 +78,7 @@
 
     <link name="sway_thruster_link"/>
     <joint name="sway_thruster_joint" type="fixed">
-        <origin xyz="-0.27 0.0 -0.038" rpy="0.0 0.0 -1.57079632679"/>
+        <origin xyz="-0.27 0.0 0.0" rpy="0.0 0.0 -1.57079632679"/>
         <parent link="base_link"/>
         <child link="sway_thruster_link"/>
     </joint>
