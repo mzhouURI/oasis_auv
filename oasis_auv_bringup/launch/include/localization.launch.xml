@@ -106,7 +106,6 @@
 
         <node ns="$(arg robot_name)" name="pressure_to_depth" pkg="alpha_localization" type="pressure_to_depth_node" output="screen">
             <param name="frame_id" value="$(arg robot_name)/pressure"/>
-
             <remap from="depth" to="depth"/>
             <remap from="pressure" to="pressure"/>
         </node>
@@ -115,8 +114,7 @@
 
     <node ns="$(arg robot_name)" name="depth_filter" pkg="alpha_localization" type="depth_filter_node" output="screen">
         <param name="frame_id" value="$(arg robot_name)/odom"/>
-
-        <remap from="depth" to="bar30/depth"/>
+        <!-- <remap from="depth" to="bar30/depth"/> -->
         <remap from="depth_filtered" to="depth_filtered"/>
     </node>
 

@@ -107,6 +107,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        heave_stern_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         imu:
           Alpha: 1
           Show Axes: false
@@ -143,7 +147,7 @@ Visualization Manager:
         oasis_auv/base_link:
           Value: true
         oasis_auv/cg_link:
-          Value: false
+          Value: true
         oasis_auv/dvl:
           Value: false
         oasis_auv/dvl_sf:
@@ -152,12 +156,14 @@ Visualization Manager:
           Value: false
         oasis_auv/heave_bow_thruster_link:
           Value: true
+        oasis_auv/heave_stern_thruster_link:
+          Value: true
         oasis_auv/imu:
           Value: false
         oasis_auv/imu_sf:
           Value: false
         oasis_auv/odom:
-          Value: false
+          Value: true
         oasis_auv/pressure:
           Value: false
         oasis_auv/surge_thruster_link:
@@ -186,6 +192,8 @@ Visualization Manager:
             oasis_auv/gps:
               {}
             oasis_auv/heave_bow_thruster_link:
+              {}
+            oasis_auv/heave_stern_thruster_link:
               {}
             oasis_auv/imu:
               {}
@@ -281,7 +289,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.8887827396392822
+      Distance: 2.842433452606201
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -297,9 +305,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.399796485900879
+      Pitch: 1.08479642868042
       Target Frame: alpha/base_link
-      Yaw: 5.360405921936035
+      Yaw: 6.265416145324707
     Saved: ~
 Window Geometry:
   Displays:

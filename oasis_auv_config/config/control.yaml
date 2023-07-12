@@ -31,9 +31,9 @@ control_modes:
 
   hold_depth:
     # surge:      {p: 1.0,  i: 3.0,   d: 5.0,  i_max: 10, i_min: -10}
-    # z:        {p: 5.0,   i: 0.5 ,  d: 10.0, i_max: 20, i_min: -20}
-    # pitch:    {p: 20.0,    i: 0.2,   d: 5.0,  i_max: 20, i_min: -20}
-    yaw:     {p: 0.5,    i: 0.01,   d: 0.05,  i_max: 30, i_min: -30}
+    z:        {p: 4.0,   i: 1.0 ,  d: 3.0, i_max: 20, i_min: -20}
+    pitch:    {p: 4.0,    i: 0.5,   d: 5.0,  i_max: 20, i_min: -20}
+    # yaw:     {p: 5,    i: 0.4,   d: 5.0,  i_max: 30, i_min: -30}
 
   move:
     x:        {p: 5.0,    i: 1.0,   d: 5.0,  i_max: 30, i_min: -30}
@@ -55,21 +55,25 @@ thruster_ids:
   - surge
   - sway
   - heave_bow
+  - heave_stern
 
 control_tf:
   surge: surge_thruster_link
   sway: sway_thruster_link
   heave_bow: heave_bow_thruster_link
+  heave_stern: heave_stern_thruster_link
 
 thruster_command_topics:
   surge: control/thruster/surge
   sway: control/thruster/sway
   heave_bow: control/thruster/heave_bow
+  heave_stern: control/thruster/heave_stern
 
 thruster_force_topics:
   surge: control/force/surge
   sway: control/force/sway
   heave_bow: control/force/heave_bow
+  heave_stern: control/force/heave_stern
 
 
 
@@ -112,6 +116,7 @@ thruster_polynomials:
   surge:        [0.5038, 31.49, 29.78, 139.5, -18.66, -113.1]
   sway:         [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
   heave_bow:    [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
+  heave_stern:    [0.06165, 20.32, 9.632, 93.05, -2.856, -74.1]
 
 ## Force limits
 thruster_limits:
@@ -122,5 +127,8 @@ thruster_limits:
     max: 20
     min: -20
   heave_bow:
+    max: 25
+    min: -25
+  heave_stern:
     max: 25
     min: -25

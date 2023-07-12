@@ -5,5 +5,5 @@
 ##
 
 # unit: second
-duration: 60
+duration: 600
 transition_to: start

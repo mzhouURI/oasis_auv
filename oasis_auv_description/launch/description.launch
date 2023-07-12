@@ -21,7 +21,7 @@
   <!-- load urdf -->
   <param
       name="$(arg robot_name)/robot_description"
-      command="$(find xacro)/xacro '$(find oasis_auv_description)/urdf/base.urdf.xacro'"/>
+      command="$(find xacro)/xacro '$(find oasis_auv_description)/urdf/base_sf.urdf.xacro'"/>
 
   <!-- add prefix on tf -->
   <node ns="$(arg robot_name)" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
