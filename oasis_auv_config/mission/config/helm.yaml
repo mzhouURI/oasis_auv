@@ -10,21 +10,19 @@ finite_state_machine:
     initial: true
     transitions:
       - float
-      - survey_global
+      - depth_hold
       - kill
 
   - name: float
-    mode: hold_depth
+    mode: hold_depth_float
     transitions:
       - start
-      - drift
       - kill
 
-  - name: drift
-    mode: move
+  - name: depth_hold
+    mode: hold_depth_auv
     transitions:
       - start
-      - float
       - kill
 
   - name: kill
@@ -38,25 +36,8 @@ behaviors:
     plugin: helm::DirectControl
     states:
       - { name: float, priority: 1 }
-
-  - name: drifting
+  
+  - name: depth_holding
     plugin: helm::DirectControl
     states:
-      - { name: drift, priority: 1 }
-
-  - name: depth_tracking
-    plugin: helm::DepthTracking
-    states:
-      - { name: survey_local, priority: 1 }
-      - { name: survey_global, priority: 1 }
-
-  - name: periodic_surfacing
-    plugin: helm::PeriodicSurface
-    states:
-      - {name: survey_local, priority: 2}
-      - {name: survey_global, priority: 2}
-
-  - name: gps_wpt
-    plugin: helm::GpsWaypoint
-    states:
-      - {name: survey_global, priority: 1}
+      - { name: depth_hold, priority: 1 }
