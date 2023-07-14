@@ -34,14 +34,14 @@
 
     <link name="dvl"/>
     <joint name="dvl_joint" type="fixed">
-        <origin xyz="-0.3 0.0 0.092" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="3.1415926 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl"/>
     </joint>
 
      <link name="dvl_sf"/>
     <joint name="dvl_sf_joint" type="fixed">
-        <origin xyz="-0.3 0.0 0.092" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="-0.3 0.0 0.092" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl_sf"/>
     </joint>

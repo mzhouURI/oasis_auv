@@ -59,9 +59,9 @@
                     <mass value="3.0"/>
                     <look name="yellow"/>
                     <!-- forward position -->
-                    <!-- <compound_transform rpy= "0.0 0.0 0.0" xyz="0.847 0 0.057"/> -->
+                    <compound_transform rpy= "0.0 0.0 0.0" xyz="0.847 0 0.057"/>
                     <!-- backward position -->
-                    <compound_transform rpy= "0.0 0.0 0.0" xyz="0.347 0 0.057"/>
+                    <!-- <compound_transform rpy= "0.0 0.0 0.0" xyz="0.347 0 0.057"/> -->
                 </internal_part>
 
                 <external_part name="ThrusterDuctSurge" type="model" physics="surface" buoyant="true">
@@ -154,7 +154,7 @@
 
             <sensor name="dvl_sf" type="dvl" rate="5.0">
                 <link name="Base"/>
-                <origin rpy="0.0 0.0 0.0" xyz="0.1 0.0 -0.092"/>
+                <origin rpy="3.1415926 0.0 0.0" xyz="0.1 0.0 -0.092"/>
                 <specs beam_angle="30.0"/>
                 <range velocity="9.0 9.0 9.0" altitude_min="0.2" altitude_max="200.0"/>
                 <noise velocity="0.0" altitude="0.00"/>

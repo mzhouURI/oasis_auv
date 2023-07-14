@@ -44,7 +44,7 @@
 
         <rosparam command="load" ns="floating" file="$(find oasis_auv_config)/mission/param/direct_control_float.yaml"/>
         <rosparam command="load" ns="depth_holding" file="$(find oasis_auv_config)/mission/param/direct_control_auv.yaml"/>
-
+        <rosparam command="load" ns="moving" file="$(find oasis_auv_config)/mission/param/direct_control_auv_move.yaml"/>
         <!-- <rosparam command="load" ns="timer" file="$(find oasis_auv_config)/mission/param/timer.yaml"/> -->
        
     </node>

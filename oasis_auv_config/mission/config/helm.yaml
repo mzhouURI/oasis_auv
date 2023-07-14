@@ -11,6 +11,7 @@ finite_state_machine:
     transitions:
       - float
       - depth_hold
+      - move_auv
       - kill
 
   - name: float
@@ -23,6 +24,14 @@ finite_state_machine:
     mode: hold_depth_auv
     transitions:
       - start
+      - move_auv
+      - kill
+  
+  - name: move_auv
+    mode: crusing_auv
+    transitions:
+      - start
+      - depth_hold
       - kill
 
   - name: kill
@@ -41,3 +50,8 @@ behaviors:
     plugin: helm::DirectControl
     states:
       - { name: depth_hold, priority: 1 }
+  
+  - name: moving
+    plugin: helm::DirectControl
+    states:
+      - { name: move_auv, priority: 1 }

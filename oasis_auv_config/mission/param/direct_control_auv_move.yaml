@@ -1,0 +1,53 @@
+##
+# Behavior: Direct Control
+# States:
+#   - test
+##
+
+########################################
+############## Limitation ##############
+########################################
+
+# unit: meter
+max_x: 100
+max_y: 100
+max_z: 100
+
+# unit: radians 
+max_roll: 1.5707963 
+max_pitch: 1.5707963
+max_yaw: 3.1415926
+
+# unit: m/s 
+max_surge: 0.8
+max_sway: 0.8
+max_heave: 0.8
+
+# unit: rad/s
+max_roll_rate: 4.7
+max_pitch_rate: 4.7
+max_yaw_rate: 4.7
+
+########################################
+############## Desire ##################
+########################################
+
+# position
+desired_x: 20.0
+desired_y: 15.0
+desired_z: 7.0
+
+# orientation (0.4 rad = 23 degree)
+desired_roll: 0.0 
+desired_pitch: 0.0
+desired_yaw: 1.5
+
+# velocity
+desired_surge: 0.5
+desired_sway: 0.0
+desired_heave: 0.0
+
+# angular velocity
+desired_roll_rate: 0.0
+desired_pitch_rate: 0.0
+desired_yaw_rate: 0.0
