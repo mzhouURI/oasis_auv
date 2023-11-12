@@ -33,13 +33,13 @@
 
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find oasis_auv_description)/rviz/config.rviz"/>
 
-    <include file="$(find oasis_auv_bringup)/launch/include/control.launch.xml">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    <!-- <include file="$(find oasis_auv_bringup)/launch/include/control.launch.xml"> -->
+        <!-- <arg name="robot_name" value="$(arg robot_name)"/> -->
+    <!-- </include> -->
     
-    <include file="$(find oasis_auv_bringup)/launch/bringup_helm.launch">
-        <arg name="robot_name" value="$(arg robot_name)"/>
-    </include>
+    <!-- <include file="$(find oasis_auv_bringup)/launch/bringup_helm.launch"> -->
+        <!-- <arg name="robot_name" value="$(arg robot_name)"/> -->
+    <!-- </include> -->
 
 
 </launch>

@@ -5,8 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
-        - /TF1
         - /TF1/Frames1
         - /Odometry1/Covariance1
       Splitter Ratio: 0.5089927911758423
@@ -123,6 +121,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        surge_servo_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         surge_thruster_link:
           Alpha: 1
           Show Axes: false
@@ -139,8 +141,6 @@ Visualization Manager:
       Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
-      Filter (blacklist): ""
-      Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
@@ -166,6 +166,8 @@ Visualization Manager:
           Value: true
         oasis_auv/pressure:
           Value: false
+        oasis_auv/surge_servo_link:
+          Value: true
         oasis_auv/surge_thruster_link:
           Value: true
         oasis_auv/sway_thruster_link:
@@ -201,8 +203,9 @@ Visualization Manager:
               {}
             oasis_auv/pressure:
               {}
-            oasis_auv/surge_thruster_link:
-              {}
+            oasis_auv/surge_servo_link:
+              oasis_auv/surge_thruster_link:
+                {}
             oasis_auv/sway_thruster_link:
               {}
           oasis_auv/world:
@@ -289,7 +292,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.842433452606201
+      Distance: 4.793479919433594
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -305,9 +308,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.08479642868042
+      Pitch: 1.5697963237762451
       Target Frame: alpha/base_link
-      Yaw: 6.265416145324707
+      Yaw: 0.632230818271637
     Saved: ~
 Window Geometry:
   Displays:

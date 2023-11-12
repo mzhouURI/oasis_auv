@@ -27,6 +27,8 @@
   <node ns="$(arg robot_name)" pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
     <param name="prefix" value="$(arg robot_name)"/>
     <param name="tf_prefix" type="string" value="$(arg robot_name)"/>
+    <remap from="joint_states" to="control/servos/joint_states"/>
   </node>
+
 
 </launch>

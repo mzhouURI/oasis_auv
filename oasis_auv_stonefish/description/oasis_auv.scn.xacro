@@ -132,8 +132,30 @@
                 <ros_subscriber topic="/${robot_name}/control/thruster/heave_stern"/>
             </actuator>
 
+
+            <link name="surge_servo_link" type="box" physics="submerged"  buoyant="false">
+                <dimensions xyz="0.0001 0.0002 0.00001"/>
+                <origin xyz="-0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <material name="Neutral"/>
+                <look name="Green"/>
+            </link>
+
+            <joint name="servo_joint" type="revolute">
+                <parent name="Base"/>
+                <child name="surge_servo_link"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <axis xyz="0.0 0.0 1.0"/>
+            </joint>
+
+            <actuator name="surge_servo" type="servo">
+                <joint name="servo_joint"/>
+                <controller position_gain="1.1" velocity_gain="0.1" max_torque="10.0"/>
+                <initial position="-0.5"/>
+                <ros_subscriber topic="/${robot_name}/control/servo/surge"/>
+            </actuator>
+
             <actuator name="ThrusterSurge" type="thruster">
-                <link name="Base"/>
+                <link name="surge_servo_link"/>
                 <origin rpy="0.0 0.0 0.0" xyz="-0.2 0.0 0.0"/>
                 <specs thrust_coeff="1.7568" thrust_coeff_backward="1.0882" torque_coeff="0.01" max_rpm="3000.0"/>
                 <propeller diameter="0.08" right="true">
@@ -144,6 +166,9 @@
                 </propeller>
                 <ros_subscriber topic="/${robot_name}/control/thruster/surge"/>
             </actuator>
+
+             
+
 
             <sensor name="pressure" type="pressure" rate="5.0">
                 <link name="Base"/>
@@ -174,18 +199,19 @@
                 <noise ned_position="0.1"/>
                 <ros_publisher topic="/${robot_name}/gps/fix"/>
             </sensor>
+            
             <sensor name="Cam" rate="5.0" type="camera">
                 <link name="Base"/>
                 <specs resolution_x="800" resolution_y="600" horizontal_fov="60.0"/>
                 <origin xyz="1.25 0.0 0.05" rpy="0.0 1.571 0.0"/>
                 <ros_publisher topic="/${robot_name}/camera/data"/>
                 
-            </sensor>
-
+            </sensor>    <initial position="0.5"/>
 
 
             <world_transform rpy="${rpy}" xyz="${xyz}"/>
-
+            <ros_publisher servos="/${robot_name}/control/servos/joint_states"/>
+            <ros_subscriber servos="/${robot_name}/control/servos/desired_joint_states"/> 
         </robot>
     </xacro:macro>
 
