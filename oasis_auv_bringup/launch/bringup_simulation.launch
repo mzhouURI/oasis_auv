@@ -17,7 +17,7 @@
     -->
     <arg name="scenario" default="under_ice"/>
 
-    <include file="$(find oasis_auv_stonefish)/launch/simulation.launch">
+    <include file="$(find world_of_stonefish)/launch/simulation.launch">
         <arg name="robot_name" value="$(arg robot_name)"/>
         <arg name="scenario" value="$(arg scenario)"/>
     </include>
